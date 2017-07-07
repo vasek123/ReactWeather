@@ -12,6 +12,21 @@ const reducer = (state = {}, action) => {
       }
     }
 
+    case actionTypes.WEATHER_IS_LOADING: {
+      return {
+        ...state,
+        weatherIsLoading: true,
+      }
+    }
+
+    case actionTypes.GET_WEATHER_SUCCESS: {
+      return {
+        ...state,
+        weather: action.weather,
+        weatherIsLoading: false,
+      }
+    }
+
     default: {
       return state;
     }

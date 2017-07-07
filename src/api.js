@@ -3,10 +3,10 @@ const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather';
 
 const api = {
   getWeatherByCoordinates: (lat, lon, cb) => {
-    fetch(`${BASE_URL}?lat=${lat}&lon=${lon}&APPID=${API_KEY}`)
+    fetch(`${BASE_URL}?lat=${lat}&lon=${lon}&units=metric&APPID=${API_KEY}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        cb(data);
       })
       .catch((error) => {
         console.error(error);
@@ -14,10 +14,10 @@ const api = {
   },
 
   getWeatherByCity: (city, cb) => {
-    fetch(`${BASE_URL}?q=${city}&APPID=${API_KEY}`)
+    fetch(`${BASE_URL}?q=${city}&units=metric&APPID=${API_KEY}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        cb(data);
       })
       .catch((error) => {
         console.error(error);
