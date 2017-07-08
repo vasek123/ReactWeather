@@ -32,7 +32,7 @@ const reducer = (state = {}, action) => {
         ...state,
         weather: action.weather,
         weatherIsLoading: false,
-        coordinate: {
+        coordinates: {
           lat: action.weather.coord.lat,
           lon: action.weather.coord.lon,
         },

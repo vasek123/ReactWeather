@@ -15,7 +15,6 @@ const Map = ({ coordinates }) => {
       <GoogleMapReact
         className="Map"
         options={createMapOptions}
-        defaultCenter={{ lat: 49.148380, lng: 8.325219 }}
         defaultZoom={15}
         center={{ lat: lat, lng: lon }}
       >

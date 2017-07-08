@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import SearchScreen from './SearchScreen';
+import SearchScreenContainer from '../containers/SearchScreenContainer';
 import SidepanelContainer from '../containers/SidepanelContainer';
 import Map from './Map';
 
@@ -22,14 +22,19 @@ class App extends Component {
       showSearchScreen: false,
     }
 
+    this.getUsersPositionAndWeather = this.getUsersPositionAndWeather.bind(this);
     this.toggleSearchScreen = this.toggleSearchScreen.bind(this);
   }
 
-  componentDidMount() {
+  getUsersPositionAndWeather() {
     navigator.geolocation.getCurrentPosition((position) => {
       this.props.storeCoordinates(position.coords.latitude, position.coords.longitude);
       this.props.getWeatherByCoordinates(position.coords.latitude, position.coords.longitude);
     });
+  }
+
+  componentDidMount() {
+    this.getUsersPositionAndWeather();
   }
 
   toggleSearchScreen(show) {
@@ -46,11 +51,14 @@ class App extends Component {
     } */
     return (
       <div className="App">
-        <SearchScreen
+        <SearchScreenContainer
           className={this.state.showSearchScreen ? 'active' : ''}
           toggleSearchScreen={this.toggleSearchScreen}
         />
-        <SidepanelContainer toggleSearchScreen={this.toggleSearchScreen} />
+        <SidepanelContainer
+          getUsersPositionAndWeather={this.getUsersPositionAndWeather}
+          toggleSearchScreen={this.toggleSearchScreen}
+        />
         <Map
           coordinates={this.props.coordinates}
         />

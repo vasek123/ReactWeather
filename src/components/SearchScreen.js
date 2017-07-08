@@ -18,6 +18,7 @@ class SearchScreen extends Component {
   }
 
   render() {
+
     const { className } = this.props;
 
     return (
@@ -26,7 +27,12 @@ class SearchScreen extends Component {
           <Icon clickable onClick={() => this.props.toggleSearchScreen(false)} name="close" color="#fff" />
         </div>
         <Input placeholder="City" value={this.state.input} onChange={this.onInputChange} />
-        <Icon clickable name="search" color="#fff" />
+        <Icon
+          clickable
+          onClick={() => { this.props.getWeatherByCity(this.state.input); this.props.toggleSearchScreen(false); }}
+          name="search"
+          color="#fff"
+        />
       </div>
     )
   }

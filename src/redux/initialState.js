@@ -1,5 +1,5 @@
 export default {
-  usersCoordinates: {},
+  coordinates: {},
   weather: {},
   weatherIsLoading: true,
 }
