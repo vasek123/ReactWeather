@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Header from './Header';
 import SmallHeader from './SmallHeader';
 import Info from './Info';
 import Temperature from './Temperature';
@@ -16,7 +15,7 @@ const weatherIsLoadingStyle = {
 
 const WeatherInfo = ({ weatherIsLoading, weather }) => {
 
-  const { name, main, sys, wind, weather: w } = weather;
+  const { main, sys, wind, weather: w } = weather;
 
   if (weatherIsLoading) return (
     <div className="WeatherInfo" style={weatherIsLoadingStyle}>

@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './Header';
 import Icon from './Icon';
 
-const TopBar = ({ weatherIsLoading, weather }) => {
+const TopBar = ({ weatherIsLoading, weather, toggleSearchScreen }) => {
 
   const { name } = weather;
 
@@ -16,7 +16,10 @@ const TopBar = ({ weatherIsLoading, weather }) => {
   return (
     <div className="TopBar">
       <Header style={{ margin: 0, display: 'inline-block' }}>{name}</Header>
-      <Icon clickable name="refresh" />
+      <div>
+        <Icon clickable name="refresh" color="#fff" />
+        <Icon clickable onClick={() => toggleSearchScreen(true)} name="search" color="#fff" />
+      </div>
     </div>
   )
 }

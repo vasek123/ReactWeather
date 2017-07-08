@@ -7,8 +7,8 @@ const createMapOptions = (maps) => ({
   disableDefaultUI: true,
 });
 
-const Map = ({ usersCoordinates }) => {
-  const { lat, lon } = usersCoordinates;
+const Map = ({ coordinates }) => {
+  const { lat, lon } = coordinates;
 
   return (
     <div className="Map">
@@ -16,7 +16,7 @@ const Map = ({ usersCoordinates }) => {
         className="Map"
         options={createMapOptions}
         defaultCenter={{ lat: 49.148380, lng: 8.325219 }}
-        defaultZoom={14}
+        defaultZoom={15}
         center={{ lat: lat, lng: lon }}
       >
         <Marker lat={lat} lng={lon} />

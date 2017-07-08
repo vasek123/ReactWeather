@@ -5,7 +5,7 @@ const reducer = (state = {}, action) => {
     case actionTypes.USERS_COORDINATES_RECEIVED: {
       return {
         ...state,
-        usersCoordinates: {
+        coordinates: {
           lat: action.lat,
           lon: action.lon,
         },
@@ -19,11 +19,23 @@ const reducer = (state = {}, action) => {
       }
     }
 
-    case actionTypes.GET_WEATHER_SUCCESS: {
+    case actionTypes.GET_WEATHER_BY_COORDINATES_SUCCESS: {
       return {
         ...state,
         weather: action.weather,
         weatherIsLoading: false,
+      }
+    }
+
+    case actionTypes.GET_WEATHER_BY_CITY_SUCCESS: {
+      return {
+        ...state,
+        weather: action.weather,
+        weatherIsLoading: false,
+        coordinate: {
+          lat: action.weather.coord.lat,
+          lon: action.weather.coord.lon,
+        },
       }
     }
 

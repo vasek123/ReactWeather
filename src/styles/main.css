@@ -19,8 +19,29 @@ body {
   width: calc(100% - 48px);
   height: calc(12% - 48px);
   min-height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 24px;
   background-color: #314656;
+}
+
+.SearchScreen {
+  position: absolute;
+  z-index: -10;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #314656;
+  transition: all .2s;
+}
+
+.SearchScreen.active {
+  z-index: 10;
+  opacity: 1;
 }
 
 .WeatherInfo {
@@ -77,4 +98,25 @@ i.icon {
 
 i.icon.clickable-true {
   cursor: pointer;
+  opacity: .8;
+}
+
+i.icon.clickable-true:hover {
+  opacity: 1;
+}
+
+input {
+  font-family: 'Space Mono', monospace;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+  opacity: .8;
+  text-align: center;
+  font-size: 24px;
+  width: auto;
+}
+
+input:focus {
+  opacity: 1;
 }

@@ -12,8 +12,13 @@ export const weatherIsLoading = () => ({
   type: actionTypes.WEATHER_IS_LOADING,
 })
 
-export const getWeatherSuccess = (weather) => ({
-  type: actionTypes.GET_WEATHER_SUCCESS,
+export const getWeatherByCoordinatesSuccess = (weather) => ({
+  type: actionTypes.GET_WEATHER_BY_COORDINATES_SUCCESS,
+  weather,
+})
+
+export const getWeatherByCitySuccess = (weather) => ({
+  type: actionTypes.GET_WEATHER_BY_CITY_SUCCESS,
   weather,
 })
 
@@ -21,7 +26,16 @@ export const getWeatherByCoordinates = (lat, lon) => {
   return (dispatch) => {
     dispatch(weatherIsLoading());
     api.getWeatherByCoordinates(lat, lon, (weather) => {
-      dispatch(getWeatherSuccess(weather));
+      dispatch(getWeatherByCoordinatesSuccess(weather));
+    })
+  }
+}
+
+export const getWeatherByCity = (city) => {
+  return (dispatch) => {
+    dispatch(weatherIsLoading());
+    api.getWeatherByCity(city, (weather) => {
+      dispatch(getWeatherByCitySuccess(weather));
     })
   }
 }

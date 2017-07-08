@@ -3,7 +3,7 @@ import * as actions from '../redux/actions';
 import App from '../components/App';
 
 const mapStateToProps = state => ({
-  usersCoordinates: state.usersCoordinates,
+  coordinates: state.coordinates,
   weather: state.weather,
   weatherIsLoading: state.weatherIsLoading,
 })
