@@ -39,3 +39,8 @@ export const getWeatherByCity = (city) => {
     })
   }
 }
+
+export const toggleSearchScreen = (show) => ({
+  type: actionTypes.TOGGLE_SEARCH_SCREEN,
+  show,
+})

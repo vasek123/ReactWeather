@@ -18,12 +18,8 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      showSearchScreen: false,
-    }
 
     this.getUsersPositionAndWeather = this.getUsersPositionAndWeather.bind(this);
-    this.toggleSearchScreen = this.toggleSearchScreen.bind(this);
   }
 
   getUsersPositionAndWeather() {
@@ -37,31 +33,12 @@ class App extends Component {
     this.getUsersPositionAndWeather();
   }
 
-  toggleSearchScreen(show) {
-    this.setState({ showSearchScreen: show !== undefined ? show : !this.state.showSearchScreen });
-  }
-
   render() {
-    /* if (this.state.showSearchScreen) {
-      return (
-        <div className="App">
-          <SearchScreen toggleSearchScreen={this.toggleSearchScreen} />
-        </div>
-      )
-    } */
     return (
       <div className="App">
-        <SearchScreenContainer
-          className={this.state.showSearchScreen ? 'active' : ''}
-          toggleSearchScreen={this.toggleSearchScreen}
-        />
-        <SidepanelContainer
-          getUsersPositionAndWeather={this.getUsersPositionAndWeather}
-          toggleSearchScreen={this.toggleSearchScreen}
-        />
-        <Map
-          coordinates={this.props.coordinates}
-        />
+        <SearchScreenContainer className={this.props.isSearchScreenVisible ? 'active' : ''} />
+        <SidepanelContainer getUsersPositionAndWeather={this.getUsersPositionAndWeather} />
+        <Map coordinates={this.props.coordinates} />
       </div>
     );
   }

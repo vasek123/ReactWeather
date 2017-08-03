@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   getWeatherByCity: (city) => dispatch(actions.getWeatherByCity(city)),
+  toggleSearchScreen: (show) => dispatch(actions.toggleSearchScreen(show)),
 })
 
 const SearchScreenContainer = connect(

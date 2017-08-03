@@ -39,6 +39,13 @@ const reducer = (state = {}, action) => {
       }
     }
 
+    case actionTypes.TOGGLE_SEARCH_SCREEN: {
+      return {
+        ...state,
+        isSearchScreenVisible: action.show !== undefined ? action.show : !state.isSearchScreenVisible,
+      }
+    }
+
     default: {
       return state;
     }
